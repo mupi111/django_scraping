@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Search Results</h1>
+          </div>
+          <div class="col-sm-6">
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                      <th scope="col">NO</th>
+                      <th scope="col">Nama</th>
+                      <th scope="col">Harga</th>
+                      <th scope="col">Aksi</th>
+                    </tr>
+                    {% for bungas in bungas %}
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ bungas.nama_bunga }}</td>
+                      <td>{{ bungas.harga}}</td>
+                      <td>
+                          <a href="{% url 'detail' bungas.id %}" role="button" class="btn btn-block btn-primary">Detail</a>
+                          <a href="{% url 'edit' bungas.id %}" type="button" class="btn btn-block btn-warning">Update</a>
+                          <a href="{% url 'delete' bungas.id %}" type="button" class="btn btn-block btn-danger">Delete</a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+
+                    {% else %}
+                        <p> No Products </p>
+                    {% endif %}
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+  
+
+{% endfor %}
+
+{% endblock %}

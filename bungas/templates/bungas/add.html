@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Advanced Form</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Advanced Form</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- SELECT2 EXAMPLE -->
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title">Bibit Bunga</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="row">
+            <div class="col-sm-12">
+                <!-- Basic Form Inputs card start -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Silahkan Menambah Produk</h5>
+                    </div>
+                    <div class="card-block">
+                        <h4 class="sub-title">Produk</h4>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nama</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="nama_bunga" class="form-control"
+                                    placeholder="Nama">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Harga</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="harga" class="form-control"
+                                    placeholder="Harga">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">SKU</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="sku" class="form-control"
+                                    placeholder="SKU">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+
+                                <label class="col-sm-2 col-form-label">Kategori</label>
+                                <div class="col-sm-10">
+                                    <select name="select_kategori" class="form-control">
+                                        <option value="Bolu Gulung">Roti</option>
+                                        <option value="Brownies">Brownies</option>
+                                        <option value="Roti Manis Mungil">Roti Manis Mungil</option>
+                                        <option value="Roti Asin Mungil">Roti Asin Mungil</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+
+                                <label class="col-sm-2 col-form-label">Upload File</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="image" class="form-control">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info btn-round waves-effect waves-light" >Kirim</button>
+                                                                    
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+  {% endblock %}
